@@ -1,15 +1,9 @@
 package brinnich;
 
-public class YamlUser {
+public class YamlUser extends Element{
 
-	private String value;
-	
 	public YamlUser(String value){
-		value = "user: " + value;
-	}
-	
-	public String getString(){
-		return value;
+		this.value = "user: " + value;
 	}
 	
 }

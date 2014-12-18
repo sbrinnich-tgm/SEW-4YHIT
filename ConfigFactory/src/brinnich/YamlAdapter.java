@@ -1,14 +1,8 @@
 package brinnich;
 
-public class YamlAdapter {
-	
-	private String value;
+public class YamlAdapter extends Element{
 	
 	public YamlAdapter(String value){
-		value = "adapter: " + value;
-	}
-	
-	public String getString(){
-		return value;
+		this.value = "adapter: " + value;
 	}
 }

@@ -1,15 +1,9 @@
 package brinnich;
 
-public class YamlClassname {
+public class YamlClassname extends Element{
 
-	private String value;
-	
 	public YamlClassname(String value){
-		value = "classname: " + value;
-	}
-	
-	public String getString(){
-		return value;
+		this.value = "classname: " + value;
 	}
 	
 }
