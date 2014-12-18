@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class ConfFactory {
 	
 	private DBConnection dbcon;
+	
+	private String[] configTypes = new String[] {
+			"adapter", "classname", "dsn", "user", "password", "attributes", "defaultConnection", "connections"
+	};
 	
 	public void connect(String server, String user, String password, String dbname){
 		// Build DB-Connection
@@ -24,9 +27,6 @@ public abstract class ConfFactory {
 		
 		// Execute Query
 		ResultSet rs = dbcon.executeStatement(query);
-		
-		// Close Connection
-		dbcon.closeConnections();
 		
 		return rs;
 		
@@ -56,11 +56,14 @@ public abstract class ConfFactory {
 			System.err.println("Could not create output-file '" + filename + "'.");
 		}
 		try {
-			file.write(createElement("adapter",elements.get("adapter")).getString());
-			file.newLine();
-			file.write(createElement("user",elements.get("user")).getString());
-			file.newLine();
-			file.write(createElement("password",elements.get("password")).getString());
+			for(int i = 0; i < 8; i++){
+				if(!elements.containsKey(configTypes[i]) || elements.get(configTypes[i]).equals("null")){
+					file.write(createElement(configTypes[i],"").getString());
+				}else{
+					file.write(createElement(configTypes[i],elements.get(configTypes[i])).getString());
+				}
+				file.newLine();
+			}
 		} catch (Exception e) {
 			System.err.println("Could not write to file.");
 		}
@@ -70,6 +73,11 @@ public abstract class ConfFactory {
 		} catch (IOException e) {
 			System.err.println("Could not close output-file.");
 		}
+	}
+	
+	public void closeConnections(){
+		// Close Connection
+		dbcon.closeConnections();
 	}
 
 	public abstract Element createElement(String type, String value);

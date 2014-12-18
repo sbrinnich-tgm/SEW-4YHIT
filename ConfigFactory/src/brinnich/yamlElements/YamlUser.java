@@ -1,4 +1,6 @@
-package brinnich;
+package brinnich.yamlElements;
+
+import brinnich.Element;
 
 public class YamlUser extends Element{
 

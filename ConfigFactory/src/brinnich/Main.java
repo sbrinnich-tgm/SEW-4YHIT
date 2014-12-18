@@ -13,6 +13,7 @@ public class Main {
 				opt.getOption(CLIOptions.PASSWORD), opt.getOption(CLIOptions.DBNAME));
 		
 		yaml.writeConfig("propel.yaml");
+		yaml.closeConnections();
 	}
 
 }
