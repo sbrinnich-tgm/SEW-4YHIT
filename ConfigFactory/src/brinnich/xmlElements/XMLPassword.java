@@ -5,7 +5,7 @@ import brinnich.Element;
 public class XMLPassword extends Element{
 	
 	public XMLPassword(String value){
-		this.value = "password: " + value;
+		this.value = "<password>" + value + "</password>";
 	}
 	
 }

@@ -5,7 +5,7 @@ import brinnich.Element;
 public class XMLDSN extends Element{
 
 	public XMLDSN(String value){
-		this.value = "dsn: " + value;
+		this.value = "<dsn>" + value + "</dsn>";
 	}
 	
 }

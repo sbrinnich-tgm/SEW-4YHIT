@@ -1,27 +1,27 @@
 package brinnich;
 
-import brinnich.yamlElements.*;
+import brinnich.xmlElements.*;
 
-public class YamlConfFactory extends ConfFactory{
+public class XMLConfFactory extends ConfFactory{
 
 	@Override
 	public Element createElement(String type, String value) {
 		if(type.equals("adapter")){
-			return new YamlAdapter(value);
+			return new XMLAdapter(value);
 		}else if(type.equals("classname")){
-			return new YamlClassname(value);
+			return new XMLClassname(value);
 		}else if(type.equals("dsn")){
-			return new YamlDSN(value);
+			return new XMLDSN(value);
 		}else if(type.equals("user")){
-			return new YamlUser(value);
+			return new XMLUser(value);
 		}else if(type.equals("password")){
-			return new YamlPassword(value);
+			return new XMLPassword(value);
 		}else if(type.equals("attributes")){
-			return new YamlAttributes(value);
+			return new XMLAttributes(value);
 		}else if(type.equals("defaultConnection")){
-			return new YamlDefaultConnection(value);
+			return new XMLDefaultConnection(value);
 		}else if(type.equals("connections")){
-			return new YamlConnections(value);
+			return new XMLConnections(value);
 		}else{
 			return null;
 		}

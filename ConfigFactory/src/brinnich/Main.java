@@ -8,12 +8,22 @@ public class Main {
 			System.exit(1);
 		}
 		
-		YamlConfFactory yaml = new YamlConfFactory();
-		yaml.connect(opt.getOption(CLIOptions.SERVERNAME), opt.getOption(CLIOptions.USERNAME), 
+		ConfFactory conf = null;
+		
+		if(opt.getOption(CLIOptions.CONFIGTYPE).equals("yaml")){
+			conf = new YamlConfFactory();
+		}else if(opt.getOption(CLIOptions.CONFIGTYPE).equals("xml")){
+			conf = new XMLConfFactory();
+		}else{
+			System.err.println("Configurationfile type '" + opt.getOption(CLIOptions.CONFIGTYPE) + "' not supported!");
+			System.exit(1);
+		}
+		
+		conf.connect(opt.getOption(CLIOptions.SERVERNAME), opt.getOption(CLIOptions.USERNAME), 
 				opt.getOption(CLIOptions.PASSWORD), opt.getOption(CLIOptions.DBNAME));
 		
-		yaml.writeConfig("propel.yaml");
-		yaml.closeConnections();
+		conf.writeConfig("propel.yaml");
+		conf.closeConnections();
 	}
 
 }
