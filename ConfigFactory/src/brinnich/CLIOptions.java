@@ -30,7 +30,7 @@ public class CLIOptions {
 	
 	/**
 	 * Initialisiert alle moeglichen CLI-Argumente und parsed die eingegebenen Argumente des Users
-	 * @param args
+	 * @param args die eingegebenen CLI-Argumente des Users
 	 */
 	public void initOptions(String[] args){
 		Options options = new Options();
@@ -51,7 +51,7 @@ public class CLIOptions {
 	}
 	
 	/**
-	 * Prueft die eingegebenen CLI-Argumente. (Alle notwendigen Parameter muessen angegeben sein; -r macht ohne -s keinen Sinn)
+	 * Prueft die eingegebenen CLI-Argumente. (Alle notwendigen Parameter muessen angegeben sein)
 	 * @return true, wenn alle Argumente valide sind<br>
 	 * 			false, wenn ein oder mehrere Argumente fehlen/falsch sind
 	 */

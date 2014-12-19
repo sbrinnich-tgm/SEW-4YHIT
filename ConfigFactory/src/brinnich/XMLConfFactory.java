@@ -2,6 +2,13 @@ package brinnich;
 
 import brinnich.xmlElements.*;
 
+/**
+ * Stellt eine Factory fuer XML-Propel-Konfigurationen dar
+ * 
+ * @author Selina Brinnich
+ * @version 2014-12-19
+ *
+ */
 public class XMLConfFactory extends ConfFactory{
 
 	@Override

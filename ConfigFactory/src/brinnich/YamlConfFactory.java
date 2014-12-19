@@ -2,6 +2,13 @@ package brinnich;
 
 import brinnich.yamlElements.*;
 
+/**
+ * Stellt eine Factory fuer Yaml-Propel-Konfigurationen dar
+ * 
+ * @author Selina Brinnich
+ * @version 2014-12-19
+ *
+ */
 public class YamlConfFactory extends ConfFactory{
 
 	@Override
